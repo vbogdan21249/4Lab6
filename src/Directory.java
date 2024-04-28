@@ -5,8 +5,8 @@ import java.util.ArrayList;
  * Class representing directories in the file system.
  */
 public class Directory implements FileSystemComponent {
-    private String name;
-    private List<FileSystemComponent> children;
+    private final String name;
+    private final List<FileSystemComponent> children;
 
     /**
      * Constructor for creating a Directory with a specified name.
@@ -28,7 +28,9 @@ public class Directory implements FileSystemComponent {
     }
 
     /**
-     * Creates and returns a copy of the directory.
+     * Adds some FileSystemComponent component to the directory.
+     *
+     * @param component The component to add.
      */
     public void addComponent(FileSystemComponent component) {
         children.add(component);

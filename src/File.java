@@ -4,7 +4,7 @@
  */
 public class File implements FileSystemComponent {
 
-    private String name;
+    private final String name;
 
     /**
      * Constructor for creating a file with a specified name.
