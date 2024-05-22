@@ -1,10 +1,12 @@
+package FileSystem;
 
 /**
  * Class representing files in the file system.
  */
 public class File implements FileSystemComponent {
 
-    private final String name;
+    private String name;
+    private int depth;
 
     /**
      * Constructor for creating a file with a specified name.
@@ -13,15 +15,20 @@ public class File implements FileSystemComponent {
      */
     public File(String name) {
         this.name = name;
+        this.depth = 0;
+    }
+    @Override
+    public String getName() {
+        return name;
     }
 
     /**
-     * Gets the name of the file.
+     * Sets the depth of the file.
      *
-     * @return The name of the file.
+     * @param depth The depth of the file.
      */
-    public String getName() {
-        return name;
+    public void setDepth(int depth) {
+        this.depth = depth;
     }
 
     /**
@@ -30,11 +37,8 @@ public class File implements FileSystemComponent {
      * @return A copy of the file.
      */
     public File clone() {
-        return new File(name);
-    }
-
-    @Override
-    public String toString() {
-        return name;
+        File clonedFile = new File("cloned" + name);
+        clonedFile.setDepth(this.depth);
+        return clonedFile;
     }
 }
